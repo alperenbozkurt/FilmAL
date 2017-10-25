@@ -1,2 +1,2 @@
-# netfilmx
-Java Server Page ile Film kiralama ve satın alma sitesi
+# FilmX
+Ruby Sinatra ile Film kiralama ve satın alma sitesi
