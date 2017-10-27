@@ -1,5 +1,7 @@
 # ANASAYFA ILE ILGILI YONLENDIRMELER
 get '/' do
-  @isim = "Hello"
+  @sezon = session['user_id'].inspect
+  puts @sezon, "Boşluk"
+  puts session[:user_id]
   erb :index
 end

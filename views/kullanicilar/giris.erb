@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="">
+      <form action="/kullanicilar/giris/" method="post">
+        <input type="text" name="kullanici_adi" value="" placeholder="Kullanıcı Adı"><br>
+        <input type="password" name="parola" value="" placeholder="Parola"><br>
+        <button type="submit" name="Gönder">Giriş Yap</button><br>
+      </form>
+      <%= flash[:sonuc]%>
+    </div>
+  </body>
+</html>
