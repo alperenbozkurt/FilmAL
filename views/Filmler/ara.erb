@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% if !@filmler.nil? %>
+      <% @filmler.each do |film|%>
+        <%= film['film_adi'] %><br>
+        <%= film['aciklama'] %><br>
+        <%= film['imdb_puani'].round(2) %><br>
+        <img src="<%= film['poster_url'] %>" alt="<%= film['film_adi'] %>"><br>
+        <%= film['yapim_tarihi'].year %><br>
+        <%= film['yonetmen_adi'] %> <b><<<< INNER JOIN >>>>></b> 
+        <hr>
+      <% end %>
+    <% else %>
+      <%= "Film Bulunamadı." %>
+    <% end %>
+  </body>
+</html>

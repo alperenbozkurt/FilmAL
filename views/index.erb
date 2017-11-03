@@ -5,7 +5,15 @@
     <title></title>
   </head>
   <body>
-    MErhaba
-    <%= @sezon %>
+    <% if @kullanici %>
+      Merhaba <%= @kullanici.adi %><br>
+      <form action="/filmler/ara/" method="post">
+        <input type="text" name="film_adi" placeholder="Film ismi">
+        <input type="submit" name="ara"></input><br>
+      </form>
+      <a href="/kullanicilar/cikis/">Çıkış Yap</a>
+    <% else %>
+      Giriş yapmak için <a href="/kullanicilar/giris/">Tıklayın</a>
+    <% end %>
   </body>
 </html>

@@ -1,7 +1,7 @@
 # ANASAYFA ILE ILGILI YONLENDIRMELER
 get '/' do
-  @sezon = session['user_id'].inspect
-  puts @sezon, "Boşluk"
-  puts session[:user_id]
+  if session[:user_id]
+    @kullanici = Kullanici.id_ile_ara(session['user_id'].inspect)
+  end
   erb :index
 end
