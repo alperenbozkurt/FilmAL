@@ -1,6 +1,9 @@
 get "/kullanicilar/giris/" do
-
-  erb :'kullanicilar/giris'
+  if session[:user_id].nil?
+    erb :'kullanicilar/giris'
+  else
+    redirect "/"
+  end
 end
 get "/kullanicilar/cikis/" do
   session[:user_id] = nil
@@ -11,17 +14,18 @@ post "/kullanicilar/giris/" do
   parola = params["parola"]
 
   sonuc = Kullanici.giris(kadi,parola)
-
   if sonuc.count == 0
     flash[:sonuc] = "Kullanıcı Adınız Veya Parolanız Hatalı."
     redirect "/kullanicilar/giris/"
   else
-    sonuc.each do |e|
-      if e['admin_mi'] == 1
+    sonuc.each do |kullanici|
+      puts kullanici['admin_mi'] , "Kullanici Yetkisi"
+      if kullanici['admin_mi'] == 1
+        session[:user_id] = kullanici['idKullanicilar']
         flash[:sonuc] = "Başarıyla giriş yaptınız."
-        redirect "/admin/"
+        redirect "/yonetici/"
       else
-        kullanici = Kullanici.new(e['idKullanicilar'],e['kullanici_adi'],e['adi'],e['soyadi'],e['parola'],e['resim_url'],e['admin_mi'])
+        kullanici = Kullanici.new(kullanici['idKullanicilar'],kullanici['kullanici_adi'],kullanici['adi'],kullanici['soyadi'],kullanici['parola'],kullanici['resim_url'],kullanici['admin_mi'])
         session[:user_id] = kullanici.id
         flash[:sonuc] = "Başarıyla giriş yaptınız."
         redirect "/"
