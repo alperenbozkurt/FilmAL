@@ -1,0 +1,105 @@
+body{
+  background-color: #ecf0f1;
+  font-family: 'ubuntu';
+}
+.ortala{
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+}
+.ust{
+  height: 70px;
+  box-shadow: 0px 0px 10px 2px rgba(81, 81, 81, 0.3);
+  background: #ecf0f1;
+  margin-bottom: 20px;
+  padding-top: 5px;
+}
+.logo{
+  float: left;
+}
+.menu{
+  float: right;
+  margin-left: 20px;
+}
+li {
+  padding: 10px;
+  background-color: #e74c3c;
+  border-radius: 3px;
+  margin-left: 3px;
+  float:  left;
+  display: block;
+  list-style: none;
+  width: 100px;
+  text-align: center;
+  color: #FFF;
+}
+
+.orta{
+  border-radius: 4px;
+  background-color: #e74c3c;
+  height: auto;
+  width: 1200px;
+  float: left;
+  box-shadow: 0px 0px 10px 2px rgba(71, 71, 71, 0.3);
+}
+.film{
+  margin: 10px;
+  width: 180px;
+  float: left;
+  border-radius: 4px;
+}
+.film img{
+  border-radius: 4px;
+}
+.alt {
+  float: left;
+  border-radius: 4px;
+  background-color: #e74c3c;
+  height: auto;
+  width: 1200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  box-shadow: 0px 0px 10px 2px rgba(71, 71, 71, 0.3);
+}
+.player{
+  width: 700px;
+  height: 400px;
+  background-color: #000;
+  margin: 10px;
+  float: left;
+}
+.film-aciklamalari{
+  float: left;
+  color: #eee;
+  width: 460px;
+  height: 400px;
+  margin: 10px
+}
+.film-aciklamalari p{
+  overflow-y: auto;
+  height: 232px;
+}
+.satin_al{
+  padding: 10px;
+  background-color: #ecf0f1;
+  border-radius: 3px;
+  margin-left: 3px;
+  float:  left;
+  display: block;
+  list-style: none;
+  width: 100px;
+  text-align: center;
+  color: #e74c3c;
+  border: 3px solid #ecf0f1;
+  transition: background-color 0.5s;
+}
+.satin_al:hover{
+  background-color: #e74c3c;
+  color: #ecf0f1;
+  border: 3px solid #ecf0f1;
+  cursor: pointer;
+}
