@@ -1,4 +1,5 @@
 body {
+  color: #ecf0f1;
   background-color: #ecf0f1;
   font-family: 'ubuntu';
 }
@@ -96,7 +97,7 @@ body {
   overflow-y: auto;
   height: 232px;
 }
-.satin_al a {
+.satin_al input[type=submit] {
   padding: 10px;
   background-color: #ecf0f1;
   border-radius: 3px;
@@ -104,14 +105,13 @@ body {
   float:  left;
   display: block;
   list-style: none;
-  width: 140px;
   text-align: center;
   color: #e74c3c;
   border: 3px solid #ecf0f1;
   transition: background-color 0.5s;
   text-decoration: none;
 }
-.satin_al a:hover {
+.satin_al input[type=submit]:hover {
   background-color: #e74c3c;
   color: #ecf0f1;
   border: 3px solid #ecf0f1;
@@ -134,7 +134,7 @@ input[type=submit] {
   padding: 10px;
   border: 0px;
   border-radius: 3px;
-  transition: all 0.2s;
+  transition: box-shadow 0.2s;
 }
 input[type=submit]:hover {
   box-shadow: 0px 0px 10px 1px rgba(81, 81, 81, 0.4);
@@ -260,4 +260,34 @@ a {
 }
 a:hover {
   color: #bdc3c7;
+}
+.kullanici_profil {
+  margin: 30px;
+  width: 100%;
+}
+.kullanici_profil img{
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 200px;
+}
+.kullanici_profil h2{
+  margin: 0px;
+  margin-left: 30px;
+  padding: 0px;
+  color: #ecf0f1;
+}
+.satin_almalar {
+  margin-left: 10px;
+  color: #ecf0f1;
+}
+.satin_almalar h1 {
+  margin-left: 20px;
+}
+.hata {
+  width: 100%;
+  text-align: center;
+  color: #ecf0f1;
+}
+.bosluk_p {
+  padding: 10px;
+  margin: 0px;
 }

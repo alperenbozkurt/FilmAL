@@ -1,0 +1,6 @@
+<%= erb :'temel/ust' %>
+  <div class="orta bosluk_p">
+    <h1><%= @film.first['film_adi'] %> Adlı Film 3 ₺'ye Satın Alındı</h1>
+    <img src="<%= @film.first['poster_url'] %>" alt="">
+  </div>
+<%= erb :'temel/alt' %>

@@ -8,7 +8,10 @@
       <h4>IMDB : <%= @film.first['imdb_puani'].round(2) %> | Çıkış Tarihi : <%= @film.first['yapim_tarihi'].year %></h4>
       <p><%= @film.first['aciklama'] %></p>
       <div class="satin_al">
-        <a href="#">Filmi Satın Al - <%= @film.first['fiyat'] %> ₺</a>
+        <form action="/satin_alma/" method="post">
+          <input type="hidden" name="film_id" value="<%= @film.first['idFilmler'] %>">
+          <input type="submit" name="gonder" value="Filmi Satın Al - <%= @film.first['fiyat'] %> ₺">
+        </form>
       </div>
     </div>
     <div class="ayrintilar">

@@ -1,7 +1,27 @@
 <%= erb :'temel/ust' %>
   <div class="orta">
-
-
-
+    <div class="yonetmen kullanici_profil">
+      <div class="yonetmen-resim">
+        <img src="<%= @bu_kullanici.resim_url %>" alt="">
+      </div>
+      <h2><%= @bu_kullanici.adsoyad %><br></h2>
+    </div>
+    <div class="satin_almalar">
+      <h1>Satın Aldığı Filmler</h1>
+      <% if !@satin_almalar.nil? %>
+        <% @satin_almalar.each do |film| %>
+          <div class="film filmx">
+            <a href="/film/<%= film['idFilmler'] %>" >
+              <img src="<%= film['poster_url'] %>" alt="<%= film['film_adi'] %>" width="180" height="250">
+            </a>
+          </div>
+        <% end %>
+        <% if @satin_almalar.first.nil? %>
+          <%= "<p class='hata'>Satın Aldığınız Film Bulunmamaktadır.</p>"%>
+        <% end %>
+      <% else %>
+        <%= "Hata Oldu. Lütfen iletişime geçiniz." %>
+      <% end %>
+    </div>
   </div>
 <%= erb :'temel/alt' %>

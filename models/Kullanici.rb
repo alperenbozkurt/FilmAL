@@ -38,6 +38,21 @@ class Kullanici
     end
     Kullanici.new(id,kadi,adi,soyadi,parola,resim,admin_mi)
   end
+  def self.kullanici_adi_ile_ara(k_adi)
+    sorgu = baglanti.prepare("SELECT * FROM Kullanicilar WHERE kullanici_adi = ?")
+    sonuc = sorgu.execute(k_adi)
+    id,kadi,adi,soyadi,parola,resim,admin_mi = 0, "","","","",-1
+    sonuc.each do |e|
+      id = e['idKullanicilar']
+      kadi = e['kullanici_adi']
+      adi = e['adi']
+      soyadi = e['soyadi']
+      parola = e['parola']
+      resim = e['resim_url']
+      admin_mi = e['admin_mi']
+    end
+    Kullanici.new(id,kadi,adi,soyadi,parola,resim,admin_mi)
+  end
   def self.giris(kullanici_adi, parola)
     sorgu = baglanti.prepare("SELECT * FROM Kullanicilar WHERE kullanici_adi = ? and parola = ?")
     sonuc = sorgu.execute(kullanici_adi, parola)

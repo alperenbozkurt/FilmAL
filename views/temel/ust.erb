@@ -26,7 +26,7 @@
         <ul class="menu">
           <li><a href="<%= @siteurl %>/">Anasayfa</a></li>
           <% if @kullanici %>
-            <li><a href=""><%= @kullanici.adsoyad %></a></li>
+            <li><a href="<%= @siteurl %>/kullanicilar/<%= @kullanici.kullanici_adi %>/"><%= @kullanici.adsoyad %></a></li>
             <li><a href="<%= @siteurl %>/kullanicilar/cikis/">Çıkış Yap</a></li>
           <% else %>
           <li><a href="<%= @siteurl %>/kullanicilar/kayitol/">Kaydol</a></li>

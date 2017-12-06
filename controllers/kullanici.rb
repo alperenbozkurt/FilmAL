@@ -1,4 +1,5 @@
 get "/kullanicilar/giris/" do
+  kullanici_giris
   if session[:user_id].nil?
     erb :'kullanicilar/giris'
   else
@@ -6,10 +7,12 @@ get "/kullanicilar/giris/" do
   end
 end
 get "/kullanicilar/cikis/" do
+  kullanici_giris
   session[:user_id] = nil
   redirect "/"
 end
 post "/kullanicilar/giris/" do
+  kullanici_giris
   kadi = params["kullanici_adi"]
   parola = params["parola"]
 
@@ -36,10 +39,12 @@ end
 
 
 get "/kullanicilar/kayitol/" do
+  kullanici_giris
   erb :'kullanicilar/kayitol'
 end
 
 post "/kullanicilar/kayitol/" do
+  kullanici_giris
   id = nil
   kullanici_adi = params["kullanici_adi"]
   adi = params["adi"]
@@ -53,5 +58,16 @@ post "/kullanicilar/kayitol/" do
   redirect "/kullanicilar/giris/"
 end
 get '/kullanicilar/:username/' do
+  kullanici_giris
+  kullanici_adi = params['username']
+  @bu_kullanici  = Kullanici.kullanici_adi_ile_ara(kullanici_adi)
+  @satin_almalar = SatinAl.aldiklari(@bu_kullanici.id)
+
   erb :'kullanicilar/profil'
+end
+
+def kullanici_giris
+  if session[:user_id]
+    @kullanici = Kullanici.id_ile_ara(session['user_id'].inspect)
+  end
 end
