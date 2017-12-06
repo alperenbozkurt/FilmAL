@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<%= erb :'temel/ust' %>
+  <div class="orta">
+    <h1 style="padding-left: 10px;"><%= params[:film_adi] %>, aramasının sonuçları : </h1>
+    <%= puts @kullanici %>
     <% if !@filmler.nil? %>
-      <% @filmler.each do |film|%>
-        <%= film['film_adi'] %><br>
-        <%= film['aciklama'] %><br>
-        <%= film['imdb_puani'].round(2) %><br>
-        <img src="<%= film['poster_url'] %>" alt="<%= film['film_adi'] %>"><br>
-        <%= film['yapim_tarihi'].year %><br>
-        <%= film['yonetmen_adi'] %> <b><<<< INNER JOIN >>>>></b> 
-        <hr>
+      <% @filmler.each do |film| %>
+        <div class="film">
+          <a href="/film/<%= film['idFilmler'] %>" >
+            <img src="<%= film['poster_url'] %>" alt="<%= film['film_adi'] %>" width="180" height="250">
+          </a>
+        </div>
       <% end %>
     <% else %>
-      <%= "Film Bulunamadı." %>
+      <%= "Sonuç Bulunamadı." %>
     <% end %>
-  </body>
-</html>
+      <i style="color:#e74c3c">.</i>
+  </div>
+<%= erb :'temel/alt' %>

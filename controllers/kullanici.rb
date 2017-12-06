@@ -52,3 +52,6 @@ post "/kullanicilar/kayitol/" do
   flash[:sonuc] = "Kullanici başarıyla oluşturuldu. Lütfen giriş yapınız. Teşekkürler."
   redirect "/kullanicilar/giris/"
 end
+get '/kullanicilar/:username/' do
+  erb :'kullanicilar/profil'
+end

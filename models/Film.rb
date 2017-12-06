@@ -13,18 +13,20 @@ class Film
   end
   def self.ara(adi)
     adi = "%"+adi+"%"
-    sorgu = baglanti.prepare("SELECT Filmler.*, Yonetmenler.adi as yonetmen_adi FROM Filmler, Yonetmenler WHERE Filmler.Yonetmen_id = Yonetmenler.idYonetmenler and Filmler.film_adi like ?")
+    sorgu = baglanti.prepare("SELECT Filmler.* FROM Filmler, Yonetmenler WHERE Filmler.Yonetmen_id = Yonetmenler.idYonetmenler and Filmler.film_adi like ?")
     sonuc = sorgu.execute(adi)
     puts "Arama Yapıldı. #{sonuc.size} eleman bulundu."
     sonuc
   end
   def self.getir(film_id)
-    sorgu = baglanti.prepare("SELECT Filmler.*, Yonetmenler.adi as yonetmen_adi FROM Filmler, Yonetmenler WHERE Filmler.Yonetmen_id = Yonetmenler.idYonetmenler and Filmler.idFilmler = ?")
+    sorgu = baglanti.prepare("SELECT DISTINCT * FROM Filmler, Oyuncular, Oyuncular_has_Filmler,Yonetmenler WHERE Filmler.idFilmler = Oyuncular_has_Filmler.Film_idFilmler and Oyuncular_has_Filmler.Oyuncular_idOyuncular = Oyuncular.idOyuncular and Yonetmenler.idYonetmenler = Filmler.Yonetmen_id and Filmler.idFilmler = ?")
     sonuc = sorgu.execute(film_id)
-    sonuc = sonuc.first
+  end
+  def self.rastgele
+    sorgu = baglanti.query("SELECT * FROM Filmler ORDER BY RAND() LIMIT 6")
   end
   def self.tumu
-    sonuc = baglanti.query("SELECT Filmler.*, Yonetmenler.adi as yonetmen_adi FROM Filmler, Yonetmenler WHERE Filmler.Yonetmen_id = Yonetmenler.idYonetmenler")
+    sonuc = baglanti.query("SELECT * FROM Filmler")
     puts "Arama Yapıldı. #{sonuc.size} film bulundu."
     sonuc
   end

@@ -4,5 +4,5 @@ get '/' do
     @kullanici = Kullanici.id_ile_ara(session['user_id'].inspect)
   end
   @filmler = Film.tumu
-  erb :index
+  erb :'index'
 end

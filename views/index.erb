@@ -1,55 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>FilmAy</title>
-    <link href="normalize.css" rel="stylesheet" type="text/css" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <div class="ust">
-      <div class="ortala">
-        <div class="logo">
-          <img src="/logo.png" alt="Film Ay">
+<%= erb :'temel/ust' %>
+  <div class="orta">
+    <% if !@filmler.nil? %>
+      <% @filmler.each do |film| %>
+        <div class="film">
+          <a href="/film/<%= film['idFilmler'] %>" >
+            <img src="<%= film['poster_url'] %>" alt="<%= film['film_adi'] %>" width="180" height="250">
+          </a>
         </div>
-        <ul class="menu">
-          <li>Anasayfa</li>
-          <li>Kaydol</li>
-          <li>Giriş</li>
-        </ul>
-      </div>
-    </div>
-    <div class="ortala">
-      <div class="orta">
-        <% if !@filmler.nil? %>
-          <% @filmler.each do |film| %>
-            <div class="film">
-              <a href="/film/<%= film['idFilmler'] %>" >
-                <img src="<%= film['poster_url'] %>" alt="<%= film['film_adi'] %>" width="180" height="250">
-              </a>
-            </div>
-          <% end %>
-        <% else %>
-          <%= "Film Bulunamadı." %>
-        <% end %>
-          <i style="color:#e74c3c">.</i>
-      </div>
-      <div class="alt">
-        Bu Site FIRAT lisansıyla lisanslanmıştır.
-        <% if @kullanici %>
-          Merhaba <%= @kullanici.adi %><br>
-          <form action="/filmler/ara/" method="post">
-            <input type="text" name="film_adi" placeholder="Film ismi">
-            <input type="submit" name="ara"></input><br>
-          </form>
-          <a href="/kullanicilar/cikis/">Çıkış Yap</a>
-        <% else %>
-          Giriş yapmak için <a href="/kullanicilar/giris/">Tıklayın</a>
-        <% end %>
-      </div>
-
-    </div>
-
-
-  </body>
-</html>
+      <% end %>
+    <% else %>
+      <%= "Film Bulunamadı." %>
+    <% end %>
+      <i style="color:#e74c3c">.</i>
+  </div>
+  <%= erb :'temel/alt' %>

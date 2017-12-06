@@ -1,54 +1,65 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title><%= @film['film_adi'] %></title>
-    <link href="../normalize.css" rel="stylesheet" type="text/css" />
-    <link href="../style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <div class="ust">
-      <div class="ortala">
-        <div class="logo">
-          <img src="/logo.png" alt="Film Ay">
-        </div>
-        <ul class="menu">
-          <li>Anasayfa</li>
-          <li>Kaydol</li>
-          <li>Giriş</li>
-        </ul>
+<%= erb :'temel/ust' %>
+  <div class="orta">
+    <div class="player">
+
+    </div>
+    <div class="film-aciklamalari">
+      <h2><%= @film.first['film_adi'] %></h2>
+      <h4>IMDB : <%= @film.first['imdb_puani'].round(2) %> | Çıkış Tarihi : <%= @film.first['yapim_tarihi'].year %></h4>
+      <p><%= @film.first['aciklama'] %></p>
+      <div class="satin_al">
+        <a href="#">Filmi Satın Al - <%= @film.first['fiyat'] %> ₺</a>
       </div>
     </div>
-    <div class="ortala">
-      <div class="orta">
-        <div class="player">
-
-        </div>
-        <div class="film-aciklamalari">
-          <h2><%= @film['film_adi'] %></h2>
-          <h4>IMDB : <%= @film['imdb_puani'].round(2) %> | Çıkış Tarihi : <%= @film['yapim_tarihi'].year %></h4>
-          <p><%= @film['aciklama'] %></p>
-          <div class="satin_al">
-            Filmi Satın Al
+    <div class="ayrintilar">
+      <div class="tabs">
+        <ul class="tab-links">
+          <li><a href="#tab1"> Öneriler </a></li>
+          <li class="active"><a href="#tab2"> Açıklamalar </a></li>
+          <li><a href="#tab3"> Yorumlar </a></li>
+        </ul>
+        <hr>
+        <div class="tab-content">
+          <div id="tab1" class="tab">
+            <h2>Efsanevi Algoritmamızın Sizin İçin Seçtiği Filmler</h2>
+            <% if !@oneriler.nil? %>
+              <% @oneriler.each do |film| %>
+                <div class="film filmx">
+                  <a href="/film/<%= film['idFilmler'] %>" >
+                    <img src="<%= film['poster_url'] %>" alt="<%= film['film_adi'] %>" width="180" height="250">
+                  </a>
+                </div>
+              <% end %>
+            <% else %>
+              <%= "Hata Oldu. Lütfen iletişime geçiniz." %>
+            <% end %>
+            <i style="color:#e74c3c">____</i>
+          </div>
+          <div id="tab2" class="tab active">
+            <div class="yonetmen">
+              <div class="yonetmen-resim">
+                <img src="<%= @film.first['yonetmen_resim_url'] %>" alt="">
+              </div>
+              <h2><%= @film.first['yonetmen_adi'] %></h2>
+              <p><%= @film.first['yonetmen_aciklama'] %></p>
+            </div>
+            <div class="oyuncular">
+              <% @film.each do |oyuncu| %>
+                <div class="oyuncu">
+                  <div class="oyuncu-resim">
+                    <img src="<%= oyuncu['oyuncu_resim_url']%>" alt="">
+                  </div>
+                  <h3><%= oyuncu['oyuncu_adi']%> <%= oyuncu['oyuncu_soyadi']%> </h3>
+                  <p><%= oyuncu['oyuncu_aciklama'][0..80]%>..</p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div id="tab3" class="tab">
+            <h2>Yorum sistemimiz kısa süre içerisinde geliştirilecektir. </h2>
           </div>
         </div>
       </div>
-      <div class="alt">
-        Bu Site FIRAT lisansıyla lisanslanmıştır.
-        <% if @kullanici %>
-          Merhaba <%= @kullanici.adi %><br>
-          <form action="/filmler/ara/" method="post">
-            <input type="text" name="film_adi" placeholder="Film ismi">
-            <input type="submit" name="ara"></input><br>
-          </form>
-          <a href="/kullanicilar/cikis/">Çıkış Yap</a>
-        <% else %>
-          Giriş yapmak için <a href="/kullanicilar/giris/">Tıklayın</a>
-        <% end %>
-      </div>
-
     </div>
-
-
-  </body>
-</html>
+  </div>
+<%= erb :'temel/alt'%>

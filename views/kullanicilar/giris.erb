@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div class="">
+<%= erb :'temel/ust' %>
+    <div class="kaydol">
+      <h1>Giriş Yap</h1>
+      <hr>
       <form action="/kullanicilar/giris/" method="post">
         <input type="text" name="kullanici_adi" value="" placeholder="Kullanıcı Adı"><br>
         <input type="password" name="parola" value="" placeholder="Parola"><br>
-        <button type="submit" name="Gönder">Giriş Yap</button><br>
+        <input type="submit" name="Gönder" value="Giriş Yap"><br>
       </form>
       <%= flash[:sonuc]%>
-      <br><br><br>
-      <a href="/kullanicilar/kayitol/">Kayıt Ol</a>
+      <br>
+      <a href="<%= @siteurl %>/kullanicilar/kayitol/">Kayıt Ol</a> |
+      <a href="#">Parolamı Unuttum</a>
     </div>
-  </body>
-</html>
+<%= erb :'temel/alt' %>

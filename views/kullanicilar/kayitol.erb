@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <form action="/kullanicilar/kayitol/" method="post">
-      <input type="text" name="kullanici_adi" value="" placeholder="Kullanici Adınız"><br>
-      <input type="text" name="adi" value="" placeholder="Adınız"><br>
-      <input type="text" name="soyadi" value="" placeholder="Soyadınız"><br>
-      <input type="password" name="parola" value="" placeholder="Parolanız"><br>
-      <input type="text" name="resim" value="" placeholder="Burayi Bos Birakabilirsiniz."><br>
-      <input type="submit" name="gonder" text="Gonder" placeholder=""><br>
-    </form>
-  </body>
-</html>
+<%= erb :'temel/ust' %>
+<div class="kaydol">
+  <h1>Kayıt Ol</h1>
+  <hr>
+  <form action="/kullanicilar/kayitol/" method="post">
+    <input type="text" name="kullanici_adi" value="" placeholder="Kullanici Adınız *"><br>
+    <input type="text" name="adi" value="" placeholder="Adınız *"><br>
+    <input type="text" name="soyadi" value="" placeholder="Soyadınız *"><br>
+    <input type="password" name="parola" value="" placeholder="Parolanız *"><br>
+    <input type="text" name="resim" value="" placeholder="Resim Adresi"><br>
+    <input type="submit" name="gonder" value="Kayıt Ol"><br>
+  </form>
+  <br>
+  <a href="<%= @siteurl %>/kullanicilar/giris/">Giriş Yap</a> |
+  <a href="#">Parolamı Unuttum</a>
+</div>
+<%= erb :'temel/alt' %>

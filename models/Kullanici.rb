@@ -42,4 +42,7 @@ class Kullanici
     sorgu = baglanti.prepare("SELECT * FROM Kullanicilar WHERE kullanici_adi = ? and parola = ?")
     sonuc = sorgu.execute(kullanici_adi, parola)
   end
+  def adsoyad
+    "#{@adi} #{@soyadi}"
+  end
 end

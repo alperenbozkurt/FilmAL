@@ -1,39 +1,47 @@
-body{
+body {
   background-color: #ecf0f1;
   font-family: 'ubuntu';
 }
-.ortala{
+.ortala {
   margin-left: auto;
   margin-right: auto;
   width: 1200px;
 }
-.ust{
+.ust {
   height: 70px;
   box-shadow: 0px 0px 10px 2px rgba(81, 81, 81, 0.3);
   background: #ecf0f1;
   margin-bottom: 20px;
   padding-top: 5px;
 }
-.logo{
+.logo {
   float: left;
 }
-.menu{
+.menu {
   float: right;
-  margin-left: 20px;
 }
-li {
+.menu li {
+  list-style: none;
+  float:  left;
+}
+.menu li a {
+  text-decoration:none;
   padding: 10px;
   background-color: #e74c3c;
   border-radius: 3px;
   margin-left: 3px;
-  float:  left;
   display: block;
-  list-style: none;
-  width: 100px;
+  min-width: 100px;
   text-align: center;
   color: #FFF;
+  border: 2px solid #e74c3c;
+  transition: background-color 0.5s;
 }
-
+.menu li a:hover {
+  background-color: #ecf0f1;
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+}
 .orta{
   border-radius: 4px;
   background-color: #e74c3c;
@@ -51,6 +59,9 @@ li {
 .film img{
   border-radius: 4px;
 }
+.filmx {
+  width: 176px;
+}
 .alt {
   float: left;
   border-radius: 4px;
@@ -65,25 +76,27 @@ li {
   padding-bottom: 15px;
   box-shadow: 0px 0px 10px 2px rgba(71, 71, 71, 0.3);
 }
-.player{
+.player {
   width: 700px;
   height: 400px;
   background-color: #000;
   margin: 10px;
   float: left;
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px 2px rgba(21, 21, 21, .4);
 }
-.film-aciklamalari{
+.film-aciklamalari {
   float: left;
   color: #eee;
   width: 460px;
   height: 400px;
   margin: 10px
 }
-.film-aciklamalari p{
+.film-aciklamalari p {
   overflow-y: auto;
   height: 232px;
 }
-.satin_al{
+.satin_al a {
   padding: 10px;
   background-color: #ecf0f1;
   border-radius: 3px;
@@ -91,15 +104,160 @@ li {
   float:  left;
   display: block;
   list-style: none;
-  width: 100px;
+  width: 140px;
   text-align: center;
   color: #e74c3c;
   border: 3px solid #ecf0f1;
   transition: background-color 0.5s;
+  text-decoration: none;
 }
-.satin_al:hover{
+.satin_al a:hover {
   background-color: #e74c3c;
   color: #ecf0f1;
   border: 3px solid #ecf0f1;
   cursor: pointer;
+}
+.arama {
+  float: right;
+  margin-top: 15px;
+}
+input[type=text], input[type=password] {
+  padding: 10px;
+  border-radius: 3px;
+  border: 0px;
+  margin: 0px;
+  margin-bottom: 10px;
+  width: 280px;
+}
+input[type=submit] {
+  margin: 0px;
+  padding: 10px;
+  border: 0px;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+input[type=submit]:hover {
+  box-shadow: 0px 0px 10px 1px rgba(81, 81, 81, 0.4);
+
+}
+.ayrintilar {
+  float: left;
+  margin: 10px;
+  width: 1180px;
+}
+tabs {
+  width: 100%;
+  display: inline-block;
+}
+.tab-links:after {
+  display:block;
+  clear:both;
+  content:'';
+}
+.tab-links {
+  padding-left: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 280px;
+}
+.tab-links li {
+  margin-left: 0px;
+  float: left;
+  list-style: none;
+}
+.tab-links a {
+  padding: 9px;
+  display: inline-block;
+  border-radius: 3px 3px 0px 0px;
+  background: #e74c3c;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ecf0f1;
+  text-decoration: none;
+  border-bottom: 4px solid #e74c3c;
+}
+.tab-links a:hover {
+  border-bottom: 4px solid #ecf0f1;
+}
+li.active a, li.active a:hover {
+  border-bottom: 4px solid #ecf0f1;
+}
+.tab-content {
+  border-radius: 3px;
+  color: #ecf0f1;
+  /*box-shadow: 0px 0px 10px 2px rgba(21, 21, 21, .4);
+  background: #e74c3c;rgba(255, 255, 255, 1);*/
+}
+.tab-content h2 {
+  padding: 10px;
+  color: #ecf0f1;
+  margin: 0px;
+}
+.tab {
+  display:none;
+}
+.tab.active {
+  display:block;
+}
+.yonetmen{
+  float: left;
+  width: 550px;
+}
+.yonetmen-resim img{
+  border-radius: 3px;
+  float: left;
+  margin-right: 10px;
+  width: 200px;
+  box-shadow: 0px 0px 10px 2px rgba(21, 21, 21, .4);
+}
+.yonetmen h2{
+  float: left;
+  width: 300px;
+  display: inline-block;
+}
+.yonetmen p{
+  display: block;
+  margin-left:  5px;
+}
+.oyuncular {
+  float: left;
+  width: 630px;
+}
+.oyuncu {
+  width: 300px;
+  float: left;
+}
+.oyuncu h3 {
+  margin: 5px;
+}
+.oyuncu-resim img {
+  width: 75px;
+  float: left;
+  margin: 5px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px 2px rgba(21, 21, 21, .2);
+}
+.oyuncu p{
+  margin: 10px;
+}
+.kaydol {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e74c3c;
+  border-radius: 3px;box-shadow: 0px 0px 10px 2px rgba(21, 21, 21, .2);
+  padding: 20px;
+}
+.kaydol h1 {
+  margin: 0px;
+  margin-bottom: 10px;
+  color: #ecf0f1;
+}
+a {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+a:hover {
+  color: #bdc3c7;
 }

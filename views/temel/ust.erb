@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <% if @film %>
+      <title><%= @film.first['film_adi'] %></title>
+    <% else %>
+      <title>FilmAy</title>
+    <% end %>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+      crossorigin="anonymous"></script>
+    <script src="<%= @siteurl %>/tabMenu.js"></script>
+    <link href="<%= @siteurl %>/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="<%= @siteurl %>/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="ust">
+      <div class="ortala">
+        <div class="logo">
+          <a href="/">
+            <img src="/logo.png" alt="Film Ay">
+          </a>
+        </div>
+        <ul class="menu">
+          <li><a href="<%= @siteurl %>/">Anasayfa</a></li>
+          <% if @kullanici %>
+            <li><a href=""><%= @kullanici.adsoyad %></a></li>
+            <li><a href="<%= @siteurl %>/kullanicilar/cikis/">Çıkış Yap</a></li>
+          <% else %>
+          <li><a href="<%= @siteurl %>/kullanicilar/kayitol/">Kaydol</a></li>
+          <li><a href="<%= @siteurl %>/kullanicilar/giris/">Giriş</a></li>
+          <% end %>
+        </ul>
+        <div class="arama">
+          <form action="/filmler/ara/" method="post">
+            <input type="text" name="film_adi" placeholder="Film ismi">
+            <input type="submit" name="ara" value="Ara"></input><br>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="ortala">
