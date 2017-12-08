@@ -1,0 +1,30 @@
+<%= erb :'temel/ust' %>
+  <div class="orta">
+    <%= erb :'admin/menu' %>
+
+    <div class="" style="height:100px;">
+
+    </div>
+    <hr>
+    <h1>Film Ekle</h1>
+    <hr>
+    <form action="/yonetici/filmler/ekle/" method="post">
+      <input type="text" name="adi" value="" placeholder="Adı *"><br>
+      <input type="text" name="aciklama" value="" placeholder="Açıklama *"><br>
+      <input type="text" name="imdb_puani" value="" placeholder="imdb puanı * "><br>
+      <input type="text" name="poster_url" value="" placeholder="Poster"><br>
+      <input type="text" name="fragman_url" value="" placeholder="Fragman "><br>
+      <input type="text" name="video_url" value="" placeholder="Video"><br>
+      <input type="date" name="yapim_tarihi" value="" placeholder="yapim tarihi"><br>
+      <input type="text" name="fiyat" value="3" placeholder="Fiyat"><br>
+      <select name="yonetmen_id">
+        <% @yonetmenler.each  do |yonetmen|   %>
+          <option value="<%= yonetmen['idYonetmenler'] %>"><%= yonetmen['yonetmen_adi'] %></option>
+        <% end %>
+      </select><br>
+
+      <input type="submit" name="gonder" value="Ekle"><br>
+    </form>
+  </div>
+
+<%= erb :'temel/alt' %>

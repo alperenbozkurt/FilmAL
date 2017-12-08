@@ -1,0 +1,20 @@
+<%= erb :'temel/ust' %>
+  <div class="orta">
+    <%= erb :'admin/menu' %>
+
+    <div class="" style="height:100px;">
+
+    </div>
+    <hr>
+    <h1>Yonetmen Ekle</h1>
+    <hr>
+    <form action="/yonetici/yonetmenler/ekle/" method="post">
+      <input type="text" name="yonetmen_adi" value="" placeholder="Yönetmen Adı *"><br>
+      <input type="text" name="yonetmen_dogum_tarihi" value="" placeholder="Doğum Tarihi *"><br>
+      <input type="text" name="yonetmen_aciklama" value="" placeholder="Aciklama * "><br>
+      <input type="text" name="yonetmen_resim_url" value="" placeholder="Resim Adresi"><br>
+      <input type="submit" name="gonder" value="Ekle"><br>
+    </form>
+  </div>
+
+<%= erb :'temel/alt' %>

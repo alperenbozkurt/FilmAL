@@ -1,0 +1,36 @@
+<%= erb :'temel/ust' %>
+  <div class="orta">
+    <%= erb :'admin/menu' %>
+
+    <div class="" style="height:100px;">
+
+    </div>
+    <hr>
+    <a href="<%= @siteurl %>/yonetici/oyuncular/ekle/">Oyuncu Ekle</a>
+    <hr>
+    <table>
+      <tr>
+        <td>Oyuncu Adı Soyadi</td>
+        <td>Oyuncu Dogum Tarihi</td>
+        <td>Oyuncu Acıklama</td>
+        <td>Oyuncu Resim</td>
+      </tr>
+      <% if !@yonetmenler.nil? %>
+        <% @yonetmenler.each do |yonetmen| %>
+          <tr>
+            <td><%= yonetmen['oyuncu_adi'] %> <%= yonetmen['oyuncu_soyadi'] %></td>
+            <td><%= yonetmen['oyuncu_dogum_tarihi'] %> </td>
+            <td><%= yonetmen['oyuncu_aciklama'][0..100] %></td>
+            <td> <img src=" <%= yonetmen['oyuncu_resim_url'] %>" alt="" height="50px"></td>
+          </tr>
+        <% end %>
+        <% if @yonetmenler.first.nil? %>
+          <%= "<p class='hata'>Hiç Kimse Hiçbir şey satın almamış.</p>"%>
+        <% end %>
+      <% else %>
+        <%= "Hata Oldu. Lütfen iletişime geçiniz." %>
+      <% end %>
+    </table>
+  </div>
+
+<%= erb :'temel/alt' %>

@@ -8,16 +8,17 @@ class Yonetmen
     @aciklama = aciklama
     @resim_url = resim_url
   end
-  def self.ara(adi)
-
+  def self.tumu()
+    sorgu = baglanti.query("SELECT * FROM Yonetmenler")
   end
-  def olustur()
-
+  def self.Ekle(yonetmen_adi,yonetmen_dogum_tarihi,yonetmen_aciklama,yonetmen_resim_url)
+    sorgu = baglanti.prepare("INSERT INTO `Yonetmenler` VALUES (NULL, ?, ?, ?, ?)")
+    sonuc = sorgu.execute(yonetmen_adi, yonetmen_dogum_tarihi, yonetmen_aciklama, yonetmen_resim_url)
+    puts "Yönetmen Eklendi"
   end
-  def sil()
-
-  end
-  def guncelle(adi, soyadı, dogum_tarihi, aciklama, resim_url)
-
+  def self.adini_getir(yonetmen_id)
+    sorgu = baglanti.prepare("select * from `Yonetmenler` where idYonetmenler = ?")
+    sonuc = sorgu.execute(yonetmen_id)
+    sonuc.first["yonetmen_adi"]
   end
 end

@@ -1,0 +1,39 @@
+<%= erb :'temel/ust' %>
+  <div class="orta">
+    <%= erb :'admin/menu' %>
+
+    <div class="" style="height:100px;">
+
+    </div>
+    <hr>
+    <table>
+      <tr>
+        <td>Resim</td>
+        <td>Kullanici Adı</td>
+        <td>Adı Soyadi</td>
+        <td>Türü</td>
+      </tr>
+      <% if !@kullanicilar.nil? %>
+        <% @kullanicilar.each do |kullanici| %>
+          <tr>
+            <td><img src="<%= kullanici['resim_url'] %>" alt="" height="50px;"> </td>
+            <td><%= kullanici['kullanici_adi'] %></td>
+            <td><%= kullanici['adi'] %> <%= kullanici['soyadi'] %></td>
+            <td><% if kullanici['admin_mi'] == 1 %>
+              <%= "admin" %>
+              <% else %>
+              <%= "Normal Kullanici" %>
+              <% end %>
+             </td>
+          </tr>
+        <% end %>
+        <% if @kullanicilar.first.nil? %>
+          <%= "<p class='hata'>Hiç Kimse Hiçbir şey satın almamış.</p>"%>
+        <% end %>
+      <% else %>
+        <%= "Hata Oldu. Lütfen iletişime geçiniz." %>
+      <% end %>
+    </table>
+  </div>
+
+<%= erb :'temel/alt' %>

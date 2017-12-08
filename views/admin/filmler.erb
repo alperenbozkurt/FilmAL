@@ -1,0 +1,43 @@
+<%= erb :'temel/ust' %>
+  <div class="orta">
+    <%= erb :'admin/menu' %>
+
+    <div class="" style="height:100px;">
+
+    </div>
+    <hr>
+    <a href="<%= @siteurl %>/yonetici/filmler/ekle/">Film Ekle</a>
+    <a href="<%= @siteurl %>/yonetici/filmler/oyuncuekle/">Filme Oyuncu Ekle</a>
+    <hr>
+    <table>
+      <tr>
+        <td>Film Adı</td>
+        <td>Açıklama</td>
+        <td>imdb Puani</td>
+        <td>Poster</td>
+        <td>Yapım Tarihi</td>
+        <td>Fiyat</td>
+        <td>Yönetmen Adı</td>
+      </tr>
+      <% if !@filmler.nil? %>
+        <% @filmler.each do |film| %>
+          <tr>
+            <td><%= film['film_adi'] %></td>
+            <td><%= film['aciklama'][0..100] %> </td>
+            <td><%= film['imdb_puani'] %></td>
+            <td> <img src=" <%= film['poster_url'] %>" alt="" height="50px"></td>
+            <td><%= film['yapim_tarihi'].year %></td>
+            <td><%= film['fiyat'] %></td>
+            <td><%= Yonetmen.adini_getir(film['Yonetmen_id']) %></td>
+          </tr>
+        <% end %>
+        <% if @filmler.first.nil? %>
+          <%= "<p class='hata'>Hiç Kimse Hiçbir şey satın almamış.</p>"%>
+        <% end %>
+      <% else %>
+        <%= "Hata Oldu. Lütfen iletişime geçiniz." %>
+      <% end %>
+    </table>
+  </div>
+
+<%= erb :'temel/alt' %>

@@ -8,16 +8,12 @@ class Oyuncu
     @aciklama = aciklama
     @resim_url = resim_url
   end
-  def self.ara(adi)
-
+  def self.tumu
+    sorgu = baglanti.query("SELECT * FROM Oyuncular")
   end
-  def olustur()
-
-  end
-  def sil()
-
-  end
-  def guncelle(kullanici_adi, ad, soyad, parola)
-
+  def self.Ekle(yonetmen_adi,yonetmen_soyadi,yonetmen_dogum_tarihi,yonetmen_aciklama,yonetmen_resim_url)
+    sorgu = baglanti.prepare("INSERT INTO `Oyuncular` VALUES (NULL, ?, ?, ?, ?, ?)")
+    sonuc = sorgu.execute(yonetmen_adi, yonetmen_soyadi, yonetmen_dogum_tarihi, yonetmen_aciklama, yonetmen_resim_url)
+    puts "Oyuncu Eklendi"
   end
 end

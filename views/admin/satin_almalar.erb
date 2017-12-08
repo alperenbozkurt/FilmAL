@@ -1,0 +1,33 @@
+<%= erb :'temel/ust' %>
+  <div class="orta">
+    <%= erb :'admin/menu' %>
+    <div class="" style="height:100px;">
+
+    </div>
+    <hr>
+    <table>
+      <tr>
+        <td>Kullanici Adı</td>
+        <td>Film Adı</td>
+        <td>Fiyat</td>
+        <td>Tarih</td>
+      </tr>
+      <% if !@satin_almalar.nil? %>
+        <% @satin_almalar.each do |film| %>
+          <tr>
+            <td><%= film['kullanici_adi'] %></td>
+            <td><%= film['film_adi'] %></td>
+            <td><%= film['fiyat'] %></td>
+            <td><%= film['satin_alma_tarihi'] %></td>
+          </tr>
+        <% end %>
+        <% if @satin_almalar.first.nil? %>
+          <%= "<p class='hata'>Hiç Kimse Hiçbir şey satın almamış.</p>"%>
+        <% end %>
+      <% else %>
+        <%= "Hata Oldu. Lütfen iletişime geçiniz." %>
+      <% end %>
+    </table>
+  </div>
+
+<%= erb :'temel/alt' %>

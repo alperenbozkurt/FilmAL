@@ -14,8 +14,8 @@ class SatinAl
     sonuc = sorgu.execute(k_id, film_id, tarih, fiyat)
     puts "#{k_id} idli kullanici #{film_id} idli filmi #{fiyat} ₺'ye satın aldı."
   end
-  def sil()
-
+  def self.tumu
+    sorgu = baglanti.query("SELECT * FROM Satin_almalar, Filmler, Kullanicilar WHERE Satin_almalar.Kullanicilar_id = Kullanicilar.idKullanicilar and Satin_almalar.Filmler_id = Filmler.idFilmler order by satin_alma_tarihi")
   end
   def guncelle(kullanici_adi, ad, soyad, parola)
 

@@ -1,18 +1,41 @@
 <%= erb :'temel/ust' %>
   <div class="orta">
     <div class="player">
+      <% if @kullanici.nil? %>
+        <!---<video id="my-player" class="video-js" controls preload="auto" poster="<%= @film.first['poster_url']%>" data-setup='{}' style="width: 100%;height100%;">
+          <source src="<%= @film.first['fragman_url']%>" type="video/mp4"></source>
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that
+            <a href="http://videojs.com/html5-video-support/" target="_blank">
+              supports HTML5 video
+            </a>
+          </p>
+        </video>--->
+        <%= @film.first['fragman_url']%>
+      <% else %>
 
+        <% if Film.varmi? @kullanici.id, @film.first['idFilmler'] %>
+        <% puts("Hello " + @film.first['idFilmler'].to_s) %>
+          <%= @film.first['video_url']%>
+        <% else %>
+          <%= @film.first['fragman_url']%>
+        <% end %>
+      <% end %>
     </div>
     <div class="film-aciklamalari">
       <h2><%= @film.first['film_adi'] %></h2>
       <h4>IMDB : <%= @film.first['imdb_puani'].round(2) %> | Çıkış Tarihi : <%= @film.first['yapim_tarihi'].year %></h4>
       <p><%= @film.first['aciklama'] %></p>
+      <% if !@kullanici.nil? %>
+
       <div class="satin_al">
         <form action="/satin_alma/" method="post">
           <input type="hidden" name="film_id" value="<%= @film.first['idFilmler'] %>">
           <input type="submit" name="gonder" value="Filmi Satın Al - <%= @film.first['fiyat'] %> ₺">
         </form>
       </div>
+      <% end %>
     </div>
     <div class="ayrintilar">
       <div class="tabs">

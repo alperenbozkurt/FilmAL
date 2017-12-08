@@ -1,0 +1,21 @@
+<%= erb :'temel/ust' %>
+  <div class="orta">
+    <%= erb :'admin/menu' %>
+
+    <div class="" style="height:100px;">
+
+    </div>
+    <hr>
+    <h1>Oyuncu Ekle</h1>
+    <hr>
+    <form action="/yonetici/oyuncular/ekle/" method="post">
+      <input type="text" name="oyuncu_adi" value="" placeholder="Adı *"><br>
+      <input type="text" name="oyuncu_soyadi" value="" placeholder="Soyadi *"><br>
+      <input type="date" name="oyuncu_dogum_tarihi" value="" placeholder="Doğum Tarihi * "><br>
+      <input type="text" name="oyuncu_aciklama" value="" placeholder="Acıklama"><br>
+      <input type="text" name="oyuncu_resim_url" value="" placeholder="Resim"><br>
+      <input type="submit" name="gonder" value="Ekle"><br>
+    </form>
+  </div>
+
+<%= erb :'temel/alt' %>

@@ -17,8 +17,8 @@ class Kullanici
     sonuc = sorgu.execute(@kullanici_adi, @adi, @soyadi, @parola, @resim_url, @admin_mi)
     puts "Veritabanına Eklendi"
   end
-  def sil()
-
+  def self.tumu
+    sorgu = baglanti.query("SELECT * FROM Kullanicilar")
   end
   def guncelle(kullanici_adi, ad, soyad, parola)
 

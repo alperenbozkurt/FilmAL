@@ -1,0 +1,26 @@
+<%= erb :'temel/ust' %>
+  <div class="orta">
+    <%= erb :'admin/menu' %>
+
+    <div class="" style="height:100px;">
+
+    </div>
+    <hr>
+    <h1>Film Ekle</h1>
+    <hr>
+    <form action="/yonetici/filmler/oyuncuekle/" method="post">
+      <select name="oyuncu_id">
+        <% @oyuncular.each  do |oyuncu|   %>
+          <option value="<%= oyuncu['idOyuncular'] %>"><%= oyuncu['oyuncu_adi'] %></option>
+        <% end %>
+      </select><br>
+      <select name="yonetmen_id">
+        <% @filmler.each  do |film|   %>
+          <option value="<%= film['idFilmler'] %>"><%= film['film_adi'] %></option>
+        <% end %>
+      </select><br>
+      <input type="submit" name="gonder" value="Ekle"><br>
+    </form>
+  </div>
+
+<%= erb :'temel/alt' %>

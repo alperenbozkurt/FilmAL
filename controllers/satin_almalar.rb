@@ -7,8 +7,6 @@ post '/satin_alma/' do
   erb :'Filmler/fatura'
 end
 
-
-
 def kullanici_giris
   if session[:user_id]
     @kullanici = Kullanici.id_ile_ara(session['user_id'].inspect)
